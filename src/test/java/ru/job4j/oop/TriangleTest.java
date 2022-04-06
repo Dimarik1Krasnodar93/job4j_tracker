@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.closeTo;
 
-public class TriangleTest extends TestCase {
+public class TriangleTest {
 
     @Test
     public void when00and40and04Then8() {
