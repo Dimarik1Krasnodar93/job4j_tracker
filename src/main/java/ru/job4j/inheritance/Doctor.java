@@ -4,9 +4,13 @@ import java.util.Date;
 
 public class Doctor  extends Profession {
 
-    private int YearLastMedicalEducation;
-    public Doctor (String name, String surname, String education, Date birthday, int YearLastMedicalEducation) {
+    private int yearLastMedicalEducation;
+    public Doctor (String name, String surname, String education, Date birthday, int yearLastMedicalEducation) {
         super(name, surname, education, birthday);
-        this.YearLastMedicalEducation = YearLastMedicalEducation;
+        this.yearLastMedicalEducation = yearLastMedicalEducation;
+    }
+
+    public void getMedicalInformation() {
+        System.out.println("Закончил мед университет: " + yearLastMedicalEducation);
     }
 }

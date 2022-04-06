@@ -4,9 +4,13 @@ import java.util.Date;
 
 public class Engineer extends Profession {
 
-    int YearEngineerEducation;
-    public Engineer (String name, String surname, String education, Date birthday, int YearEngineerEducation) {
+    int yearEngineerEducation;
+    public Engineer (String name, String surname, String education, Date birthday, int yearEngineerEducation) {
         super(name, surname, education, birthday);
-        this.YearEngineerEducation = YearEngineerEducation;
+        this.yearEngineerEducation = yearEngineerEducation;
+    }
+
+    public void getYearEngineerEducation() {
+        System.out.println("Engineed education year:" + yearEngineerEducation);
     }
 }

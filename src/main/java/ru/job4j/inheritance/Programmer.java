@@ -8,4 +8,8 @@ public class Programmer extends Engineer{
         super(name, surname, education, birthday, YearEngineerEducation);
         this.knowJava = knowJava;
     }
+
+    public void getLanguage() {
+        System.out.println("Know Java: " + knowJava);
+    }
 }
