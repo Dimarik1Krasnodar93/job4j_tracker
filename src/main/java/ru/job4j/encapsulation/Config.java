@@ -9,11 +9,11 @@ public class Config {
         this.name = name;
     }
 
-    private void print() {
+    public void print() {
         System.out.println(position);
     }
 
-    private String getProperty(String key) {
+    public String getProperty(String key) {
         return search(key);
     }
 
