@@ -18,7 +18,7 @@ public class TriangleTest {
     }
 
     @Test
-    public void whenUnreal() {
+    public void whenUnrealTriangle() {
         Point a = new Point(0, 0);
         Point b = new Point(1, 1);
         Point c = new Point(2, 2);
