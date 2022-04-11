@@ -23,8 +23,8 @@ public class Library {
 
     private static void outputBooks(Book[] books, String name) {
         for (int i = 0; i < books.length; i++) {
-            if (books[i].getName() == name) {
-                System.out.println(books[i].getName() + " " + books[i].getPages() + " pages");
+            if (books[i].getName().equals(name)) {
+                System.out.println(books[i].getName() + " " + books[i].getPages() + " pages.");
             }
         }
     }
