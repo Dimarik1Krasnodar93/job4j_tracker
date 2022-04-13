@@ -3,7 +3,7 @@ package ru.job4j.pojo;
 import java.util.Date;
 import java.util.Objects;
 
-public class License {
+public class Licence {
     private String owner;
     private String model;
     private String code;
@@ -49,8 +49,8 @@ public class License {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        License License = (License) o;
-        return Objects.equals(owner, License.owner) && Objects.equals(model, License.model) && Objects.equals(code, License.code) && Objects.equals(created, License.created);
+        Licence license = (Licence) o;
+        return Objects.equals(owner, license.owner) && Objects.equals(model, license.model) && Objects.equals(code, license.code) && Objects.equals(created, license.created);
     }
 
     @Override

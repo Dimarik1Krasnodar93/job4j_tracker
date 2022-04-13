@@ -8,11 +8,10 @@ public class LicenseTest {
 
     @Test
     public void eqName() {
-        License first = new License();
+        Licence first = new Licence();
         first.setCode("audio");
-        License second = new License();
+        Licence second = new Licence();
         second.setCode("audio");
         assertThat(first, is(second));
     }
-
 }
