@@ -12,6 +12,7 @@ public class Tracker {
             items[i] = new Item();
         }
     }
+
     public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;
