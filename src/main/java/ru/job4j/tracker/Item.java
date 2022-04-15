@@ -3,10 +3,11 @@ import java.time.*;
 
 public class Item {
     private int id;
-    private String name = "";
+    private String name;
     private LocalDateTime created = LocalDateTime.now();
 
     public  Item() {
+        name = "";
     }
 
     public Item(String name) {
