@@ -8,9 +8,7 @@ public class Tracker {
     private int size = 0;
 
     public Tracker() {
-        for (int i = 0; i < items.length; i++) {
-            items[i] = new Item();
-        }
+
     }
 
     public Item add(Item item) {
