@@ -8,7 +8,9 @@ public class Tracker {
     private int size = 0;
 
     public Tracker() {
-
+        for (int i = 0; i < items.length; i++) {
+            items[i] = new Item();
+        }
     }
 
     public Item add(Item item) {
@@ -30,8 +32,7 @@ public class Tracker {
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        items[index] = items[items.length - 1];
-        items[items.length - 1] = null;
+        System.arraycopy(items, index + 1, items, index, items.length - 1);
         return true;
     }
 
