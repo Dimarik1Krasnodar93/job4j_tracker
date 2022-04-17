@@ -11,5 +11,6 @@ public class StartUI {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String currentFormat = createdItem.format(formatter);
         System.out.println("Дата создания " + currentFormat);
+        System.out.println(item.toString());
     }
 }
