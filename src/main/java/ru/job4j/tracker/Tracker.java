@@ -32,18 +32,21 @@ public class Tracker {
 
     public boolean delete(int id) {
         int index = indexOf(id);
-        items[index] = null;
-        return true;
+        boolean rsl = index != -1;
+        if (rsl) {
+            items[index] = null;
+        }
+        return rsl;
     }
 
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        if (index == -1) {
-            return false;
+        boolean rsl = index != -1;
+        if (rsl) {
+            item.setId(index);
+            items[index] = item;
         }
-        item.setId(index);
-        items[index] = item;
-        return true;
+        return rsl;
     }
 
     public Item findById(int id) {
