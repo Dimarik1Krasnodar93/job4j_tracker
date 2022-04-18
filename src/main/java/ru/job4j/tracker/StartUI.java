@@ -63,7 +63,7 @@ public class StartUI {
         LocalDateTime createdItem = item.getCreated();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         String currentFormat = createdItem.format(formatter);
-        System.out.println("Дата создания " + currentFormat);
+        System.out.println("Дата создания: " + currentFormat);
         System.out.println(item.toString());
         Scanner scanner = new Scanner(System.in);
         Tracker tracker = new Tracker();
