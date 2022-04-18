@@ -12,9 +12,17 @@ public class Matches {
             String player = turn ? "Первый игрок" : "Второй игрок";
             System.out.println(player + " введите число от 1 до 3:");
             int matches = Integer.parseInt(input.nextLine());
-            count -= Math.min(matches, count);
-            System.out.println("Осталось спичек на столе:" + count);
-            turn = !turn;
+            if (matches < 1 || matches > 3) {
+                System.out.println("Введенное число либо меньше 1, либо больше 3. Введите еще раз");
+                continue;
+            } else if (matches > count) {
+                System.out.println("Введенное число превышает количество спичек");
+                continue;
+            } else {
+                count -= Math.min(matches, count);
+                System.out.println("Осталось спичек на столе:" + count);
+                turn = !turn;
+            }
         }
         if (!turn) {
             System.out.println("Выиграл первый игрок");
