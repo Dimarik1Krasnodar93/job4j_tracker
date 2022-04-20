@@ -4,16 +4,16 @@ public class Bus implements Transport {
 
     @Override
     public void move() {
-
+        System.out.println("Поехали!");
     }
 
     @Override
-    public void getPassangeres() {
-
+    public void getPassangeres(int count) {
+        System.out.println("Число пассажиров " + count);
     }
 
     @Override
-    public void refuel(double count, double prioe) {
-
+    public void refuel(double count, double price) {
+        System.out.println("Заправка " + count + "л  по цене " + price);
     }
 }
