@@ -11,7 +11,7 @@ public interface Transport {
     public void refuel(double count, double prioe);
 
     public static void main(String[] args) {
-        Vehicle [] arrayVehicle = new Vehicle[4];
+        Vehicle[] arrayVehicle = new Vehicle[4];
         Train train = new Train();
         Airplane airplane = new Airplane();
         Bus bus = new Bus();
