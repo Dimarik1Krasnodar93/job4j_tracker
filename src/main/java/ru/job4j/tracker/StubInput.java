@@ -4,13 +4,22 @@ public class StubInput implements Input {
     private String[] answers;
     private int position = 0;
 
+    public StubInput(String[] answers) {
+        this.answers = answers;
+    }
+
     @Override
     public String askStr(String question) {
-        return null;
+        return question;
     }
 
     @Override
     public int askInt(String question) {
-        return 0;
+        return Integer.parseInt(question);
+    }
+
+    @Override
+    public String returnName(String question) {
+        return answers[0];
     }
 }
