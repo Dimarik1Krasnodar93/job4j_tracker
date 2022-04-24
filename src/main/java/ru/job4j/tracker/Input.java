@@ -5,5 +5,4 @@ public interface Input {
 
     int askInt(String question);
 
-    String returnName(String name);
 }
