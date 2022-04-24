@@ -70,6 +70,10 @@ public class Tracker {
                 count++;
             }
         }
-        return Arrays.copyOf(rsl, count);
+        if (count == 0) {
+            return null;
+        } else {
+            return Arrays.copyOf(rsl, count);
+        }
     }
 }
