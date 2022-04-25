@@ -45,10 +45,11 @@ public class StartUITest {
 
     @Test
     public void whenDeleteItem() {
-        String[] answers = {"Fix PC", "0"};
-        Input input = new StubInput(answers);
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
+        Item item = new Item("Fix PC");
+        String[] answers = {String.valueOf(item.getId())};
+        Input input = new StubInput(answers);
+        tracker.add(item);
         StartUI.deleteItem(input, tracker);
         Item[] deletedItem = tracker.findByName(answers[0]);
         assertNull(deletedItem);
