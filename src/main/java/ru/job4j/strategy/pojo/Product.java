@@ -1,4 +1,4 @@
-package ru.job4j.pojo;
+package ru.job4j.strategy.pojo;
 
 import java.util.Objects;
 

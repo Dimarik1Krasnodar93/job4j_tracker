@@ -1,4 +1,4 @@
-package ru.job4j.pojo;
+package ru.job4j.strategy.pojo;
 
 public class ShopDrop {
     public static Product[] delete(Product[] products, int index) {

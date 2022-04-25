@@ -1,4 +1,4 @@
-package ru.job4j.pojo;
+package ru.job4j.strategy.pojo;
 
 public class Library {
     public static void main(String[] args) {
