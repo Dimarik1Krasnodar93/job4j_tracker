@@ -15,6 +15,7 @@ public class DeleteAction implements UserAction {
             System.out.println("Заявка удалена успешно.");
         } else {
             System.out.println("Ошибка удаления заявки.");
+            return false;
         }
         return true;
     }
