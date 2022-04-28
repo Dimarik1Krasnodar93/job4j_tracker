@@ -48,6 +48,7 @@ public class StartUITest {
                         + "=== Exit Program ===" + ln
         ));
     }
+
     @Test
     public void whenReplaceItem() {
         Output output = new ConsoleOutput();
@@ -74,7 +75,7 @@ public class StartUITest {
                 new String[] {"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new DeleteAction(),
+                new DeleteAction(output),
                 new ExitAction(output)
         };
         new StartUI(output).init(in, tracker, actions);
