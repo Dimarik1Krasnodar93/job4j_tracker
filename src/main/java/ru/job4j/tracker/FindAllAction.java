@@ -1,28 +1,27 @@
 package ru.job4j.tracker;
 
-public class FindByNameAction implements UserAction {
+public class FindAllAction implements UserAction {
     private final Output out;
 
-    public FindByNameAction(Output out) {
+    public FindAllAction(Output out) {
         this.out = out;
     }
 
     @Override
     public String name() {
-        return "Find by name";
+        return "Find all action";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Find items by name ===");
-        String name = input.askStr("Enter name: ");
-        Item[] items = tracker.findByName(name);
+        out.println("=== Find all action ===");
+        Item[] items = tracker.findAll();
         if (items.length > 0) {
             for (Item item : items) {
                 out.println(item);
             }
         } else {
-            out.println("Заявки с именем: " + name + " не найдены.");
+            out.println("Заявки не найдены.");
         }
         return true;
     }
