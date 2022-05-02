@@ -9,13 +9,14 @@ public class User {
         this.valid = valid;
     }
 
-    public String getUsername() {
+    public String getUsername() throws UserInvalidException {
         return username;
     }
 
-    public boolean isValid() {
+    public boolean isValid() throws UserInvalidException {
         if (username.length() < 3) {
             valid = false;
+            throw new UserInvalidException("Количество символов меньшше 3. Пользователь не валидный");
         }
         return valid;
     }
