@@ -91,7 +91,7 @@ public class StartUITest {
                         + "0. Find all action" + ln
                         + "1. Exit Program" + ln
                         + "=== Find all action ===" + ln
-                        + one.toString() + ln
+                        + one + ln
                         + "Menu:" + ln
                         + "0. Find all action" + ln
                         + "1. Exit Program" + ln
