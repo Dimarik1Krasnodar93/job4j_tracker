@@ -15,20 +15,16 @@ public class ValidateInput implements Input {
     }
 
     @Override
-    public int askInt(String question) throws NumberFormatException  {
+    public int askInt(String question) {
         boolean invalid = true;
         int value = -1;
         do {
             try {
-                String rsl = in.askStr(question);
-                value = Integer.parseInt(rsl);
+                value = in.askInt(question);
                 invalid = false;
-            } catch (NumberFormatException ex) {
-                System.out.println("Please enter validate data again.");
-                ex.printStackTrace();
-                continue;
+            } catch (NumberFormatException nfe) {
+                System.out.println("Please enter validate data again ");
             }
-
         } while (invalid);
         return value;
     }
