@@ -14,10 +14,6 @@ public class User {
     }
 
     public boolean isValid() throws UserInvalidException {
-        if (username.length() < 3) {
-            valid = false;
-            throw new UserInvalidException("Количество символов меньшше 3. Пользователь не валидный");
-        }
         return valid;
     }
 }
