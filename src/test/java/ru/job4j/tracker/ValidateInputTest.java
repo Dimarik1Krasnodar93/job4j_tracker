@@ -51,7 +51,7 @@ public class ValidateInputTest {
             );
             ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
-        assertNotEquals(selected, is(1));
+        assertThat(selected, is(2));
     }
 
     @Test
