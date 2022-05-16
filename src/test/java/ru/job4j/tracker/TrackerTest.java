@@ -70,6 +70,7 @@ public class TrackerTest {
                 new Item("Third"));
         assertThat(expected, is(items));
     }
+
     @Test
     public void whenTestFindByNameCheckArrayLength() {
         Tracker tracker = new Tracker();
