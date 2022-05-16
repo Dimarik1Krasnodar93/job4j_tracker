@@ -29,6 +29,26 @@ public class Item {
         return id;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        boolean rsl = false;
+        if (obj != null) {
+            if (obj == this) {
+                rsl = true;
+            } else {
+                if (id == ((Item) obj).getId()) {
+                    rsl = true;
+                }
+            }
+        }
+        return rsl;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

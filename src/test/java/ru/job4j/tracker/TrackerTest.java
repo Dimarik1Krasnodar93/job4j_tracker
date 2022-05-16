@@ -1,8 +1,12 @@
 package ru.job4j.tracker;
 
+import org.junit.Assert;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.*;
+import java.lang.*;
 import java.util.List;
+
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -38,6 +42,34 @@ public class TrackerTest {
         assertThat(result.getName(), is(first.getName()));
     }
 
+    @Test
+    public void whenSortAsc() {
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("First"));
+        items.add(new Item("Second"));
+        items.add(new Item("Third"));
+        items.add(new Item("Fourth"));
+        Collections.sort(items, new ItemAscByName());
+        List<Item> expected = new ArrayList<>();
+        expected.add(new Item("First"));
+        expected.add(new Item("Fourth"));
+        expected.add(new Item("Second"));
+        expected.add(new Item("Third"));
+        Assert.assertEquals(expected, items);
+    }
+
+    @Test
+    public void whenSortDesk() {
+        List<Item> items = new ArrayList<>();
+        items.add(new Item("First"));
+        items.add(new Item("Second"));
+        items.add(new Item("Third"));
+        items.add(new Item("Fourth"));
+        Collections.sort(items, new ItemAscByName());
+        List<Item> expected = List.of(new Item("First"), new Item("Fourth"), new Item("Second"),
+                new Item("Third"));
+        assertThat(expected, is(items));
+    }
     @Test
     public void whenTestFindByNameCheckArrayLength() {
         Tracker tracker = new Tracker();
