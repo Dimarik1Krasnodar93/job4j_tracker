@@ -65,9 +65,12 @@ public class TrackerTest {
         items.add(new Item("Second"));
         items.add(new Item("Third"));
         items.add(new Item("Fourth"));
-        Collections.sort(items, new ItemAscByName());
-        List<Item> expected = List.of(new Item("First"), new Item("Fourth"), new Item("Second"),
-                new Item("Third"));
+        Collections.sort(items, new ItemDescByName());
+        List<Item> expected = new ArrayList<>();
+        expected.add(new Item("Third"));
+        expected.add(new Item("Second"));
+        expected.add(new Item("Fourth"));
+        expected.add(new Item("First"));
         assertThat(expected, is(items));
     }
 
