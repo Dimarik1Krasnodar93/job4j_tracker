@@ -1,17 +1,19 @@
-package ru.job4j.bank;
+package ru.job4j.collection;
 
-import java.util.Comparator;
 import java.util.Objects;
 
 public class User implements Comparable<User> {
-    private String passport;
-    private String username;
     private String name;
+
     private int age;
 
-    public User(String passport, String username) {
-        this.passport = passport;
-        this.username = username;
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getUsername() {
+        return name;
     }
 
     public int getAge() {
@@ -30,27 +32,6 @@ public class User implements Comparable<User> {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(name, age);
-    }
-
-    public String getPassport() {
-        return passport;
-    }
-
-    public void setPassport(String passport) {
-        this.passport = passport;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -61,5 +42,10 @@ public class User implements Comparable<User> {
         User user = (User) o;
         return age == user.age
                 && Objects.equals(name, user.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
     }
 }
