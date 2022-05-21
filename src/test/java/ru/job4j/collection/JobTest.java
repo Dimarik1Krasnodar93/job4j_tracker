@@ -36,4 +36,15 @@ public class JobTest {
         );
         assertThat(rsl, lessThan(0));
     }
+
+    @Test
+    public void whenCompatorByNameAndPrority2() {
+        Comparator<Job> cmpNamePriority = new JobAscByName().thenComparing(new JobAscByPriority());
+        int rsl = cmpNamePriority.compare(
+                new Job("Impl task", 0),
+                new Job("Impl task", 1)
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
 }
