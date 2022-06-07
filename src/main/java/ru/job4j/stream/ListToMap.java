@@ -9,7 +9,7 @@ public class ListToMap {
 
     public static Map<String, Student> convert(List<Student> list) {
         return list.stream()
-                .collect(Collectors.toMap(e -> e.getSurname(),
+                .collect(Collectors.toMap(Student::getSurname,
                         e -> e,
                         (existing, replacement) -> existing));
     }
