@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Описывает банковский сервис
@@ -41,12 +42,9 @@ public class BankService {
      */
     public User findByPassport(String passport) {
         User rsl = null;
-        for (User user : users.keySet()) {
-            if (passport.equals(user.getPassport())) {
-                rsl = user;
-                break;
-            }
-        }
+        rsl= users.keySet().stream()
+                .filter(e -> passport.equals(e.getPassport()))
+                .findFirst().orElse(null);
         return rsl;
     }
 
@@ -57,15 +55,17 @@ public class BankService {
      * @return возвращает аккаунт  пользователя или Null если не нашли
      */
     public Account findByRequisite(String passport, String requisite) {
-        User user = findByPassport(passport);
         Account rsl = null;
+        User user  = users.keySet()
+                .stream()
+                .filter(e -> e.getPassport().equals(passport))
+                .findFirst().orElse(null);
         if (user != null) {
-            for (Account account : users.get(user)) {
-                if (account.getRequisite().equals(requisite)) {
-                    rsl = account;
-                    break;
-                }
-            }
+            rsl = users.get(user)
+                    .stream()
+                    .filter(e -> e.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
         return rsl;
     }
