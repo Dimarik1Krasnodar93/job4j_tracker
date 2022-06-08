@@ -42,7 +42,7 @@ public class BankService {
      */
     public User findByPassport(String passport) {
         User rsl = null;
-        rsl= users.keySet().stream()
+        rsl = users.keySet().stream()
                 .filter(e -> passport.equals(e.getPassport()))
                 .findFirst().orElse(null);
         return rsl;
