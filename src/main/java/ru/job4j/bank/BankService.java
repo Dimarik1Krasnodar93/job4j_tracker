@@ -41,11 +41,9 @@ public class BankService {
      * @return - возвращает найденного пользователя или Null если пользователя не нашли
      */
     public User findByPassport(String passport) {
-        User rsl = null;
-        rsl = users.keySet().stream()
+        return  users.keySet().stream()
                 .filter(e -> passport.equals(e.getPassport()))
                 .findFirst().orElse(null);
-        return rsl;
     }
 
     /**
@@ -58,7 +56,7 @@ public class BankService {
         Account rsl = null;
         User user  = users.keySet()
                 .stream()
-                .filter(e -> e.getPassport().equals(passport))
+                .filter(e -> findByPassport(passport) == e)
                 .findFirst().orElse(null);
         if (user != null) {
             rsl = users.get(user)
