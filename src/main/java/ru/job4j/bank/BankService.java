@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -41,9 +42,16 @@ public class BankService {
      * @return - возвращает найденного пользователя или Null если пользователя не нашли
      */
     public User findByPassport(String passport) {
-        return  users.keySet().stream()
+        Optional<User> rsl = Optional.empty();
+        rsl = users.keySet().stream()
                 .filter(e -> passport.equals(e.getPassport()))
-                .findFirst().orElse(null);
+                .findFirst();
+        if (rsl.isPresent()) {
+            return rsl.get();
+        } else
+        {
+            return null;
+        }
     }
 
     /**
