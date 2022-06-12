@@ -8,7 +8,7 @@ public class StudentLevel {
         return students.stream()
                 .filter(st -> st != null)
                 .sorted((left, right) -> {
-                        return left.getScore() > right.getScore() ? -1 : 1;
+                        return Integer.compare(right.getScore(), left.getScore());
                         }
                         )
                 .takeWhile(st -> st.getScore() > bound)
