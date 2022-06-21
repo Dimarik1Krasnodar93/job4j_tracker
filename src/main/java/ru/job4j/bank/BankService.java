@@ -48,8 +48,7 @@ public class BankService {
                 .findFirst();
         if (rsl.isPresent()) {
             return rsl.get();
-        } else
-        {
+        } else {
             return null;
         }
     }
