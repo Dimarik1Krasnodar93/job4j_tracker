@@ -25,7 +25,7 @@ public class Analyze {
                 .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors::averagingDouble))
                 .entrySet()
                 .stream()
-                .map(x -> new Tuple(x.getKey(), (int)x.getValue()))
+                .map(x -> new Tuple(x.getKey(), (int) x.getValue()))
                 .collect(Collectors.toList());
     }
 
@@ -34,7 +34,7 @@ public class Analyze {
                 .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors::summingInt))
                 .entrySet()
                 .stream()
-                .map(x -> new Tuple(x.getKey(), (int)x.getValue()))
+                .map(x -> new Tuple(x.getKey(), (int) x.getValue()))
                 .sorted(Comparator.comparing(Tuple::getScore))
                 .findFirst();
     }
@@ -44,7 +44,7 @@ public class Analyze {
                 .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors::summingDouble))
                 .entrySet()
                 .stream()
-                .map(x -> new Tuple(x.getKey(), (int)x.getValue()))
+                .map(x -> new Tuple(x.getKey(), (int) x.getValue()))
                 .sorted(Comparator.comparing(Tuple::getScore))
                 .orE;
     }
