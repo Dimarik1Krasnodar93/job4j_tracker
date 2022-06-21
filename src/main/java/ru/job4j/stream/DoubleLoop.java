@@ -11,8 +11,8 @@ public class DoubleLoop {
                 .flatMap(level -> Stream.of(tasks)
                         .map(task -> level + " " + task))
                 .forEach(System.out::println);
-        Card[] cardDesk = Stream.of(Card.Suit.values())
+        Stream.of(Card.Suit.values())
                 .flatMap(suit -> Stream.of(Card.Value.values()).map(value -> new Card(suit, value)))
-                .toArray(Card[]::new);
+                .forEach(System.out::println);
     }
 }
