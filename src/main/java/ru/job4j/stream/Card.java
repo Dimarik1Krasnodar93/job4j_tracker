@@ -9,6 +9,10 @@ public class Card {
         Diamonds, Hearts, Spades, Clubs
     }
 
+    @Override
+    public String toString() {
+        return value.name() + " " + suit.name();
+    }
     private Suit suit;
     private Value value;
 
