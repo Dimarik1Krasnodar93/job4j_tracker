@@ -12,15 +12,16 @@ public class Analyze {
     public static double averageScore(Stream<Pupil> stream) {
         return stream.flatMap(x -> x.getSubjects().stream())
                 .mapToInt(x -> x.getScore())
-                .sum() / stream.count();
+                .average().getAsDouble();
     }
 
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
-        return stream.map(x -> new Tuple(x.getName(), averageScore(stream.filter(t -> t == x))))
+        List<Tuple> rsl = stream.map(x -> new Tuple(x.getName(), averageScore(stream.filter(t -> t == x))))
                 .collect(Collectors.toList());
+        return rsl;
     }
 
-    public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
+   /* public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         return stream.flatMap(x -> x.getSubjects().stream())
                 .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors::averagingDouble))
                 .entrySet()
@@ -47,5 +48,5 @@ public class Analyze {
                 .map(x -> new Tuple(x.getKey(), (int) x.getValue()))
                 .sorted(Comparator.comparing(Tuple::getScore))
                 .orE;
-    }
+    }*/
 }
