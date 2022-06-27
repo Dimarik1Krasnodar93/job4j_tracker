@@ -13,6 +13,7 @@ public class Card {
     public String toString() {
         return value.name() + " " + suit.name();
     }
+
     private Suit suit;
     private Value value;
 
