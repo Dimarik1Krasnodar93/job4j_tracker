@@ -1,5 +1,7 @@
 package ru.job4j.stream;
 
+import com.sun.source.tree.Scope;
+
 import java.nio.channels.Pipe;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
@@ -16,7 +18,8 @@ public class Analyze {
     }
 
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
-        List<Tuple> rsl = stream.map(x -> new Tuple(x.getName(), averageScore(stream.filter(t -> t == x))))
+        List<Tuple> rsl = stream.map(x -> new Tuple(x.getName(),
+                x.getSubjects().stream().mapToInt(Subject::getScore).average().orElse(0D)))
                 .collect(Collectors.toList());
         return rsl;
     }
