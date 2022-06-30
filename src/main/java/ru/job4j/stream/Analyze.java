@@ -12,7 +12,7 @@ public class Analyze {
     public static double averageScore(Stream<Pupil> stream) {
         return stream.flatMap(x -> x.getSubjects().stream())
                 .mapToInt(x -> x.getScore())
-                .average().getAsDouble();
+                .average().orElse(0);
     }
 
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
