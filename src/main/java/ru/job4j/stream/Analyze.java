@@ -39,12 +39,11 @@ public class Analyze {
                                 x.getSubjects()
                                         .stream()
                                         .mapToInt(Subject::getScore)
-                                        .average()
-                                        .orElse(0)))
+                                        .sum()))
                         .sorted(new Comparator<Tuple>() {
                             @Override
                             public int compare(Tuple o1, Tuple o2) {
-                                return Double.compare(o1.getScore(), o2.getScore());
+                                return Double.compare(o2.getScore(), o1.getScore());
                             }
                         }).findFirst().get();
 
