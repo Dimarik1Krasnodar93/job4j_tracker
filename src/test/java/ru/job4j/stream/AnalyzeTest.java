@@ -42,7 +42,7 @@ public class AnalyzeTest {
         )));
     }
 
-   /* @Test
+    @Test
     public void whenListOfSubjectAverage() {
         List<Tuple> average = Analyze.averageScoreByPupil(
                 List.of(
@@ -69,7 +69,7 @@ public class AnalyzeTest {
         )));
     }
 
-    @Test
+   @Test
     public void whenBestPupil() {
         Tuple best = Analyze.bestStudent(
                 List.of(
@@ -79,7 +79,7 @@ public class AnalyzeTest {
         );
         assertThat(best, is(new Tuple("Ivanov", 200D)));
     }
-
+/*
     @Test
     public void whenBestSubject() {
         Tuple best = Analyze.bestSubject(

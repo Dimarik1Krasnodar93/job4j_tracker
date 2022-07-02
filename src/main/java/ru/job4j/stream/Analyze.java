@@ -24,26 +24,33 @@ public class Analyze {
         return rsl;
     }
 
-   /* public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
+    public static List<Tuple> averageScoreByPupil(Stream<Pupil> stream) {
         return stream.flatMap(x -> x.getSubjects().stream())
-                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors::averagingDouble))
+                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors.averagingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
-                .map(x -> new Tuple(x.getKey(), (int) x.getValue()))
+                .map(x -> new Tuple(x.getKey(), x.getValue()))
                 .collect(Collectors.toList());
     }
 
     public static Tuple bestStudent(Stream<Pupil> stream) {
-        return stream.flatMap(x -> x.getSubjects().stream())
-                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors::summingInt))
-                .entrySet()
-                .stream()
-                .map(x -> new Tuple(x.getKey(), (int) x.getValue()))
-                .sorted(Comparator.comparing(Tuple::getScore))
-                .findFirst();
+                return stream
+                        .map(x -> new Tuple(x.getName(),
+                                x.getSubjects()
+                                        .stream()
+                                        .mapToInt(Subject::getScore)
+                                        .average()
+                                        .orElse(0)))
+                        .sorted(new Comparator<Tuple>() {
+                            @Override
+                            public int compare(Tuple o1, Tuple o2) {
+                                return Double.compare(o1.getScore(), o2.getScore());
+                            }
+                        }).findFirst().get();
+
     }
 
-    public static Tuple bestSubject(Stream<Pupil> stream) {
+    /*public static Tuple bestSubject(Stream<Pupil> stream) {
         return stream.flatMap(x -> x.getSubjects().stream())
                 .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors::summingDouble))
                 .entrySet()
