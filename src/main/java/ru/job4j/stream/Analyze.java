@@ -40,22 +40,20 @@ public class Analyze {
                                         .stream()
                                         .mapToInt(Subject::getScore)
                                         .sum()))
-                        .sorted(new Comparator<Tuple>() {
-                            @Override
-                            public int compare(Tuple o1, Tuple o2) {
-                                return Double.compare(o2.getScore(), o1.getScore());
-                            }
-                        }).findFirst().get();
+                        .sorted(Comparator.comparingDouble(x -> -x.getScore()))
+                        .findFirst().get();
 
     }
 
-    /*public static Tuple bestSubject(Stream<Pupil> stream) {
-        return stream.flatMap(x -> x.getSubjects().stream())
-                .collect(Collectors.groupingBy(Subject::getName, LinkedHashMap::new, Collectors::summingDouble))
+    public static Tuple bestSubject(Stream<Pupil> stream) {
+        return stream
+                .flatMap(x -> x.getSubjects().stream())
+                .collect((Collectors.groupingBy(y -> y.getName(), LinkedHashMap::new, Collectors.summingDouble(y -> y.getScore()))))
                 .entrySet()
                 .stream()
-                .map(x -> new Tuple(x.getKey(), (int) x.getValue()))
-                .sorted(Comparator.comparing(Tuple::getScore))
-                .orE;
-    }*/
+                .map(x -> new Tuple(x.getKey(), x.getValue()))
+                .sorted(Comparator.comparingDouble(x -> -x.getScore()))
+                .findFirst()
+                .get();
+    }
 }
