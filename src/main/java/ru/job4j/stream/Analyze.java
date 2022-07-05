@@ -52,8 +52,6 @@ public class Analyze {
                 .entrySet()
                 .stream()
                 .map(x -> new Tuple(x.getKey(), x.getValue()))
-                .sorted(Comparator.comparingDouble(x -> -x.getScore()))
-                .findFirst()
-                .get();
+                .max(Comparator.comparingDouble(x -> x.getScore())).get();
     }
 }
