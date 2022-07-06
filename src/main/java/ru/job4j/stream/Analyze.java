@@ -40,8 +40,8 @@ public class Analyze {
                                         .stream()
                                         .mapToInt(Subject::getScore)
                                         .sum()))
-                        .sorted(Comparator.comparingDouble(x -> -x.getScore()))
-                        .findFirst().get();
+                        .max(Comparator.comparingDouble(x -> x.getScore()))
+                        .orElse(new Tuple("null", 0));
 
     }
 
@@ -52,6 +52,7 @@ public class Analyze {
                 .entrySet()
                 .stream()
                 .map(x -> new Tuple(x.getKey(), x.getValue()))
-                .max(Comparator.comparingDouble(x -> x.getScore())).get();
+                .max(Comparator.comparingDouble(x -> x.getScore()))
+                .orElse(new Tuple("null", 0));
     }
 }
