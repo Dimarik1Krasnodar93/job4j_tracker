@@ -41,7 +41,7 @@ public class Analyze {
                                         .mapToInt(Subject::getScore)
                                         .sum()))
                         .max(Comparator.comparingDouble(x -> x.getScore()))
-                        .orElse(new Tuple("null", 0));
+                        .orElse(null);
 
     }
 
@@ -53,6 +53,6 @@ public class Analyze {
                 .stream()
                 .map(x -> new Tuple(x.getKey(), x.getValue()))
                 .max(Comparator.comparingDouble(x -> x.getScore()))
-                .orElse(new Tuple("null", 0));
+                .orElse(null);
     }
 }
