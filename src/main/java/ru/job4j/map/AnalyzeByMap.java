@@ -7,7 +7,7 @@ import java.util.Map;
 public class AnalyzeByMap {
     public static double averageScore(List<Pupil> pupils) {
         double rsl = 0;
-        HashMap<Pupil, Double> hmPupil = getHMPupil(pupils);
+        Map<Pupil, Double> hmPupil = getHMPupil(pupils);
         for (Map.Entry entry : hmPupil.entrySet()) {
             rsl += (double)entry.getValue() / hmPupil.entrySet().size();
         }
@@ -19,7 +19,7 @@ public class AnalyzeByMap {
     }
 
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
-        HashMap<Pupil, Double> hmPupil = getHMPupil(pupils);
+        Map<Pupil, Double> hmPupil = getHMPupil(pupils);
         List<Label> rsl = new ArrayList<>();
         for (Map.Entry entry : hmPupil.entrySet()) {
             Pupil pulil = entry.getKey();
@@ -37,7 +37,7 @@ public class AnalyzeByMap {
     }
 
     private static HashMap<Pupil, Double> getHMPupil(List<Pupil> pupils) {
-        HashMap<Pupil, Double> rsl = new HashMap<>();
+        Map<Pupil, Double> rsl = new HashMap<>();
         for (Pupil pupil : pupils) {
             double dScore = 0;
             for (Subject subject : pupil.getSubjects()) {
